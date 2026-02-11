@@ -40,15 +40,13 @@ jobs:
           pip install -r requirements.txt
       - name: Build docs with sphinx
         run: |
-          mkdir -p _build
-          sphinx-build -b html source _build
+          sphinx-build -b html source build/html
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload entire repository
-          path: '_build'
+          path: 'build/html'
       - name: Deploy to GitHub Pages
         id: deployment
 
